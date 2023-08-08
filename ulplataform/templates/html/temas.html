@@ -1,0 +1,43 @@
+{%extends 'base.html'%}
+
+{%block 'content'%}
+    <section class="content">
+        <div class="page_header">
+            <h1>Biblioteca de Temas:</h1>
+            <form method="POST" action="{% url 'aplica_tema' %}">
+                {% csrf_token %}
+                <input name="selected-theme-input" type="hidden" value=""></input>
+                <input onclick="window.location.href='{% url 'aplica_tema' %}'" style="display:none" id="select-input" type="submit" value="Aplicar tema"></input>
+            </form>
+        </div>
+        <div class="themes_itens">
+            <ul>
+                {%for tema in temas%}
+                    <li class="theme-box-{{tema.nome_tema}}" onclick="SelectedTheme(this)" name="{{tema.nome_tema}}" style=" background: --cor-background-uplink; color: --cor-texto-uplink;"><p>{{tema.nome_tema}}</p></li>
+                {%endfor%}
+            </ul>
+        </div>
+    </section>
+    <script>
+        var selectedLi = null;
+
+        function SelectedTheme(element) {
+            if (selectedLi !== null) {
+                selectedLi.style.opacity = 1;
+            }
+
+            element.style.opacity = 0.5;
+            selectedLi = element;
+
+            document.querySelector("[id='select-input']").style.display = 'block';
+            document.querySelector("[name='selected-theme-input']").value = element.getAttribute('name');
+        }
+    </script>
+{%endblock%}
+
+{%block 'forms'%}
+    <section>
+        
+    </section>
+{%endblock%}
+

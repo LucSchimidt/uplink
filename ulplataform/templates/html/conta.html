@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+
+{%block 'content'%}
+    <section class="content">
+        <div class="page_header">
+            <h1>Sua conta</h1>
+        </div>
+        <div class="profile-content">
+            <div class="profile-picture">
+                <i class="bi bi-person-circle"></i>
+            </div>
+            <div class="profile-info">
+                <div class="profile-he">
+                    <h1> {{user}} </h1> 
+                    
+                </div>
+                <br>
+                <hr>
+                <p><b>Sua assinatura:</b></p>
+                <p>Upsys Signature</p>
+                <p><b>Próxima cobrança:</b></p>
+                <p>09/05/2024</p>
+                <p><b>Data da primeira assinatura:</b></p>
+                <p>05/04/2022</p>
+                <br>
+                <button class="cancel-signature-btn-mobile"><i class="bi bi-trash-fill"></i><p>Cancelar assinatura</p></button>
+                <br>
+            </div>
+        </div>
+    </section>
+{%endblock%}

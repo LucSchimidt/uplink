@@ -1,0 +1,247 @@
+{%extends 'base.html'%}
+
+{%load static%}
+
+
+{%block 'content'%}
+    <section class="content">
+        <div class="page_header">
+            <h1>Personalize as informações do UpLink:</h1>
+        </div>
+        
+        <form id="personalize-form-desktop" method="POST" enctype="multipart/form-data" action="{% url 'salvar_dados_formulario' %}">
+            {% csrf_token %}
+    
+            <div class="personalizar_forms">
+                <div class="personalizar_left">
+                    <label><b>Título:</b></label>
+                    <input name="title" class="personalizar_title" type="text" value="{{ form1_value }}" placeholder="Título do Uplink"></input><br>
+    
+                    <label><b>Foto ou logo do uplink:</b></label>
+                    <input name="photo" type="file"></input>
+    
+                    <label><b>Links:</b></label>
+                    <div class="links_inputs">
+                        <input name="titulo-1" type="text" placeholder="Título do Link"></input>
+                        <input name="link-1" type="text" placeholder="Link 1"></input>
+                        <div class="eye_checkbox">
+                          <input name="eye_input_1" type="checkbox" checked>
+                          <span class="checkmark"></span>
+                        </div>
+                    </div>
+                    <div class="links_inputs">
+                        <input name="titulo-2" type="text" placeholder="Título do Link"></input>
+                        <input name="link-2" type="text" placeholder="Link 2"></input>
+                        <div class="eye_checkbox">
+                          <input name="eye_input_2" type="checkbox" checked>
+                          <span class="checkmark"></span>
+                        </div>
+                    </div>
+                    <div class="links_inputs">
+                        <input name="titulo-3" type="text" placeholder="Título do Link"></input>
+                        <input name="link-3" type="text" placeholder="Link 3"></input>
+                        <div class="eye_checkbox">
+                          <input name="eye_input_3" type="checkbox" checked>
+                          <span class="checkmark"></span>
+                        </div>
+                    </div>
+                    <div class="links_inputs">
+                      <input name="titulo-4" type="text" placeholder="Título do Link"></input>
+                      <input name="link-4" type="text" placeholder="Link 4"></input>
+                      <div class="eye_checkbox">
+                        <input name="eye_input_4" type="checkbox" checked>
+                        <span class="checkmark"></span>
+                      </div>
+                    </div>
+                    <div class="links_inputs">
+                      <input name="titulo-5" type="text" placeholder="Título do Link"></input>
+                      <input name="link-5" type="text" placeholder="Link 5"></input>
+                      <div class="eye_checkbox">
+                        <input name="eye_input_5" type="checkbox" checked>
+                        <span class="checkmark"></span>
+                      </div>
+                    </div>
+                  </div>
+                
+                <div class="personalizar_right">
+                    <label><b>Links das Redes Sociais:</b></label>
+                    <div class="links_social">
+                      <input name="insta-link" type="text" placeholder="Instagram"></input>
+                      <div class="eye_checkbox">
+                        <input name="eye_input_insta" type="checkbox" checked>
+                        <span class="checkmark"></span>
+                      </div>
+                    </div>
+                    <div class="links_social">
+                      <input name="face-link" type="text" placeholder="Facebook"></input>
+                      <div class="eye_checkbox">
+                        <input name="eye_input_face" type="checkbox" checked>
+                        <span class="checkmark"></span>
+                      </div>
+                    </div>
+                    <div class="links_social">
+                      <input name="tiktok-link" type="text" placeholder="Tiktok"></input>
+                      <div class="eye_checkbox">
+                        <input name="eye_input_tiktok" type="checkbox" checked>
+                        <span class="checkmark"></span>
+                      </div>
+                    </div>
+                    <div class="links_social">
+                      <input name="youtube-link" type="text" placeholder="Youtube"></input>
+                      <div class="eye_checkbox">
+                        <input name="eye_input_youtube" type="checkbox" checked>
+                        <span class="checkmark"></span>
+                      </div>
+                    </div>
+                    <div class="links_social">
+                      <input name="twitter-link" type="text" placeholder="Twitter"></input>
+                      <div class="eye_checkbox">
+                        <input name="eye_input_twitter" type="checkbox" checked>
+                        <span class="checkmark"></span>
+                      </div>
+                    </div>
+                    <div class="links_social">
+                      <input name="threads-link" type="text" placeholder="Threads"></input>
+                      <div class="eye_checkbox">
+                        <input name="eye_input_threads" type="checkbox" checked>
+                        <span class="checkmark"></span>
+                      </div>
+                    </div>
+    
+                    <label><b>Tema:</b></label>
+                    <a onclick="window.location.href='{% url 'temas' %}'" id="btn-temas" class="theme_button"><b>{{uplink.tema}}</b></a>
+                </div>
+            </div>
+    
+            <input type="submit" value="Salvar"></input>
+
+            
+        </form>
+
+        
+
+
+
+        
+        <form id="personalize-form-mobile", method="POST", enctype="multipart/form-data" action="{% url 'salvar_dados_formulario' %}">
+          {% csrf_token %}
+          <label><b>Título:</b></label>
+          <input name="title" class="personalizar_title" type="text" value="{{ form1_value }}" placeholder="Título do Uplink"></input><br>
+
+          <label><b>Foto ou logo do uplink:</b></label>
+          <input name="photo" type="file"></input>
+          <br>
+
+          <label><b>Links:</b></label>
+
+          <input name="titulo-1" type="text" placeholder="Título do Link"></input>
+          <div class="link-area"><input name="link-1" type="text" placeholder="Link 1"></input> 
+            <div class="eye_checkbox">
+              <input name="eye_input_1" type="checkbox" checked>
+              <span class="checkmark"></span>
+            </div>
+          </div>
+          <br>
+
+          <input name="titulo-2" type="text" placeholder="Título do Link"></input>
+          <div class="link-area"><input name="link-2" type="text" placeholder="Link 2"></input>
+            <div class="eye_checkbox">
+              <input name="eye_input_2" type="checkbox" checked>
+              <span class="checkmark"></span>
+            </div>
+          </div>
+          <br>
+
+          <input name="titulo-3" type="text" placeholder="Título do Link"></input>
+          <div class="link-area"><input name="link-3" type="text" placeholder="Link 3"></input>
+            <div class="eye_checkbox">
+              <input name="eye_input_3" type="checkbox" checked>
+              <span class="checkmark"></span>
+            </div>
+          </div>
+          <br>
+
+          <input name="titulo-4" type="text" placeholder="Título do Link"></input>
+          <div class="link-area"><input name="link-4" type="text" placeholder="Link 4"></input>
+            <div class="eye_checkbox">
+              <input name="eye_input_4" type="checkbox" checked>
+              <span class="checkmark"></span>
+            </div>
+          </div>
+          <br>
+
+          <input name="titulo-3" type="text" placeholder="Título do Link"></input>
+          <div class="link-area"><input name="link-5" type="text" placeholder="Link 5"></input>
+            <div class="eye_checkbox">
+              <input name="eye_input_5" type="checkbox" checked>
+              <span class="checkmark"></span>
+            </div>
+          </div>
+          <br>
+
+          <label><b>Links das Redes Sociais:</b></label>
+          <br>
+          <div class="links_social">
+            <input name="insta-link" type="text" placeholder="Instagram"></input>
+            <div class="eye_checkbox">
+              <input name="eye_input_insta" type="checkbox" checked>
+              <span class="checkmark"></span>
+            </div>
+          </div>
+          <br>
+          <div class="links_social">
+            <input name="face-link" type="text" placeholder="Facebook"></input>
+            <div class="eye_checkbox">
+              <input name="eye_input_face" type="checkbox" checked>
+              <span class="checkmark"></span>
+            </div>
+          </div>
+          <br>
+          <div class="links_social">
+            <input name="tiktok-link" type="text" placeholder="Tiktok"></input>
+            <div class="eye_checkbox">
+              <input name="eye_input_tiktok" type="checkbox" checked>
+              <span class="checkmark"></span>
+            </div>
+          </div>
+          <br>
+          <div class="links_social">
+            <input name="youtube-link" type="text" placeholder="Youtube"></input>
+            <div class="eye_checkbox">
+              <input name="eye_input_youtube" type="checkbox" checked>
+              <span class="checkmark"></span>
+            </div>
+          </div>
+          <br>
+          <div class="links_social">
+            <input name="twitter-link" type="text" placeholder="Twitter"></input>
+            <div class="eye_checkbox">
+              <input name="eye_input_twitter" type="checkbox" checked>
+              <span class="checkmark"></span>
+            </div>
+          </div>
+          <br>
+          <div class="links_social"><input name="threads-link" type="text" placeholder="Threads"></input>
+            <div class="eye_checkbox">
+              <input name="eye_input_threads" type="checkbox" checked>
+              <span class="checkmark"></span>
+            </div>
+          </div>
+          <br>
+
+          <label><b>Tema:</b></label>
+          <a onclick="window.location.href='{% url 'temas' %}'" id="btn-temas" class="theme_button"><b>{{uplink.tema}}</b></a>
+          <br>
+          <input type="submit" value="Salvar"></input>
+          <br>
+        </form>
+        
+    </section>
+
+
+
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{%static 'js/cookies.js'%}"></script>
+    
+{%endblock%}
